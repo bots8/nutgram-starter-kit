@@ -1,5 +1,6 @@
 {
     "name": "bots8/nutgram-starter-kit",
+    "type": "project",
     "description": "A starter kit for building telegram bot with Nutgram",
     "require": {
         "nutgram/nutgram": "^4.14",
