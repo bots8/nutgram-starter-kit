@@ -1,6 +1,6 @@
 <?php
 
-require 'vendor/autoload.php';
+require 'bootstrap.php';
 
 use SergiX44\Nutgram\Nutgram;
 use SergiX44\Nutgram\RunningMode\Webhook;
@@ -10,9 +10,6 @@ use Symfony\Component\Cache\Adapter\FilesystemAdapter;
 use Symfony\Component\Cache\Psr16Cache;
 use SergiX44\Nutgram\Configuration;
 
-
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
-$dotenv->load();
 
 $psr6Cache = new FilesystemAdapter();
 $psr16Cache = new Psr16Cache($psr6Cache);
