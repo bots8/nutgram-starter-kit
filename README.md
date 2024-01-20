@@ -31,6 +31,8 @@ Before you begin, ensure that you have the following requirements installed:
 
 - **app/**: This directory contains your bot application logic. You can organize your code in a way that makes sense to you. For example, you might have separate files for commands, middleware, and other features.
 
+- **app/Models/**: Using Doctrine ORM, you can locate your entity classes and mappings in this directory.
+
 - **library/**: This directory can be used to store any additional libraries or utilities your bot might need. You can organize this folder based on your project's specific requirements.
 
 - **.env.example**: This file serves as an example configuration file. It includes placeholders for environment variables that your application might need. Make a copy of this file as `.env` and fill in the actual values.
@@ -43,10 +45,10 @@ Before you begin, ensure that you have the following requirements installed:
 
 ## Usage
 
-1. For production release, run the `setWebhook.php` script to set up your webhook:
+1. For production release, run the `webhook.php` script to set up your webhook:
 
     ```bash
-    php setWebhook.php
+    php webhook.php set
     ```
 
 2. Start your bot application:
@@ -54,6 +56,18 @@ Before you begin, ensure that you have the following requirements installed:
     ```bash
     php index.php
     ```
+    
+3. Or if you want to remove webhhok:
+
+    ```bash
+    php webhook.php delete
+    ```
+
+## Doctrine ORM Usage
+
+We use Doctrine ORM for database interactions, you can create your entity classes and mappings in the `app/Models/` directory. Refer to the Doctrine documentation for more information on defining entities and managing your database schema.
+
+[Read Documentation](https://www.doctrine-project.org/projects/orm.html)
 
 ## License
 
