@@ -1,6 +1,6 @@
 # Nutgram Starter Kit
 
-This is a simple starter kit to start your journey on building Telegram bot
+Start your Telegram bot development journey with this simple starter kit, designed for beginners. It offers essential tools and guidelines to easily build your first Telegram bot, making it a great choice for those looking to create a ready-to-use bot for production.
 
 ## Requirements
 
@@ -8,6 +8,7 @@ Before you begin, ensure that you have the following requirements installed:
 
 - PHP 8.2 or higher
 - cURL extension for PHP
+- MySQL Database (optional)
 
 ## Installation
 
@@ -31,7 +32,7 @@ Before you begin, ensure that you have the following requirements installed:
 
 - **app/**: This directory contains your bot application logic. You can organize your code in a way that makes sense to you. For example, you might have separate files for commands, middleware, and other features.
 
-- **app/Models/**: Using Doctrine ORM, you can locate your entity classes and mappings in this directory.
+- **app/QueryBuilder.php**: a simple query builder to interact with MySQL Database.
 
 - **library/**: This directory can be used to store any additional libraries or utilities your bot might need. You can organize this folder based on your project's specific requirements.
 
@@ -63,11 +64,50 @@ Before you begin, ensure that you have the following requirements installed:
     php webhook.php delete
     ```
 
-## Doctrine ORM Usage
+## Working with Database
 
-We use Doctrine ORM for database interactions, you can create your entity classes and mappings in the `app/Models/` directory. Refer to the Doctrine documentation for more information on defining entities and managing your database schema.
+You can easily interact with database but for now you can only working with MySQL Database, here a few example code to use query builder
 
-[Read Documentation](https://www.doctrine-project.org/projects/orm.html)
+```php
+$qb = new QueryBuilder();
+
+
+// Select first data
+$res = $qb->table('users')
+    ->select('id')
+    ->where('username', '=', $username)
+    ->first();
+
+// Select all data
+$res = $qb->table('users')
+    ->select('*')
+    ->where('id', '>', 10)
+    ->findAll();
+
+// Select by PK
+$res = $qb->table('users')
+    ->findByPk(1);
+
+// Insert data
+$qb->table('users')->insert([
+    'telegramId' => $from->id,
+    'username' => $from->username,
+    'name' => $from->first_name.' '.$from->last_name,
+]);
+
+// Update data
+$qb->table('users')
+    ->where('username', 'user')
+    ->update([
+        'name' => $from->first_name,
+    ]);
+
+// Delete data
+$qb->table('users')
+    ->where('status', '=', 'Banned')
+    ->delete();
+
+```
 
 ## License
 
