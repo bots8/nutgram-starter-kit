@@ -2,6 +2,10 @@
 
 Start your Telegram bot development journey with this simple starter kit, designed for beginners. It offers essential tools and guidelines to easily build your first Telegram bot, making it a great choice for those looking to create a ready-to-use bot for production.
 
+Read nutgram documentation since this starter kit using that Library as core component 
+
+https://nutgram.dev/
+
 ## Requirements
 
 Before you begin, ensure that you have the following requirements installed:
@@ -30,19 +34,15 @@ Before you begin, ensure that you have the following requirements installed:
 
 ## Structure
 
-- **app/**: This directory contains your bot application logic. You can organize your code in a way that makes sense to you. For example, you might have separate files for commands, middleware, and other features.
-
-- **app/QueryBuilder.php**: a simple query builder to interact with MySQL Database.
-
+- **app/**
+  - **Middleware/**: This directory contains middleware classes for your bot application.
+  - **QueryBuilder.php**: a simple query builder to interact with MySQL Database.
 - **library/**: This directory can be used to store any additional libraries or utilities your bot might need. You can organize this folder based on your project's specific requirements.
-
 - **.env.example**: This file serves as an example configuration file. It includes placeholders for environment variables that your application might need. Make a copy of this file as `.env` and fill in the actual values.
-
 - **handler.php**: This file is an example webhook handler. You can customize this file to handle incoming updates from Telegram.
-
 - **index.php**: The main entry point of your bot. You may include your application logic or use it to bootstrap your bot.
-
 - **setWebhook.php**: A script to set up the Telegram webhook. Replace placeholders with your actual values before running this script.
+
 
 ## Usage
 
@@ -69,6 +69,8 @@ Before you begin, ensure that you have the following requirements installed:
 You can easily interact with database but for now you can only working with MySQL Database, here a few example code to use query builder
 
 ```php
+use App\QueryBuilder;
+
 $qb = new QueryBuilder();
 
 
