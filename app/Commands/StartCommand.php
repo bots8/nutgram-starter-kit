@@ -5,7 +5,7 @@ namespace App\Commands;
 use SergiX44\Nutgram\Handlers\Type\Command;
 use SergiX44\Nutgram\Nutgram;
 use SergiX44\Nutgram\Telegram\Properties\ParseMode;
-use App\Models\User;
+use App\QueryBuilder;
 
 class StartCommand extends Command
 {
@@ -27,25 +27,27 @@ class StartCommand extends Command
         );
     }
 
-    function registerUser($from) {
-        $user = new User();
-        $user->telegramId = $from->id;
-        $user->username = $from->username;
-        $user->name = $from->first_name.' '.$from->last_name;
+    public function registerUser($from) 
+    {
+        $qb = new QueryBuilder();
 
-        $GLOBALS['em']->persist($user);
-        $GLOBALS['em']->flush();
+        $qb->table('users')->insert([
+            'telegramId' => $from->id,
+            'username' => $from->username,
+            'name' => $from->first_name.' '.$from->last_name,
+        ]);
     }
 
     public function isUsernameExists($username)
     {
-        return $GLOBALS['em']->createQueryBuilder()
-            ->select('COUNT(u.id)')
-            ->from('App\Models\User', 'u')
-            ->where('u.username = :username')
-            ->setParameter('username', $username)
-            ->getQuery()
-            ->getSingleScalarResult() > 0;
+        $qb = new QueryBuilder();
+
+        $id = $qb->table('users')
+            ->select('id')
+            ->where('username', '=', $username)
+            ->first();
+
+        return !empty($id);
     }
 }
 
