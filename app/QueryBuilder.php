@@ -111,6 +111,24 @@ class QueryBuilder {
         return $row ?: [];
     }
 
+    public function count() {
+        if (empty($this->columns)) {
+            $this->columns = ['*'];
+        }
+
+        $query = "SELECT COUNT(id) FROM $this->table";
+
+        if (!empty($this->conditions)) {
+            $query .= " WHERE " . implode(" AND ", $this->conditions);
+        }
+
+        $statement = $this->connection->prepare($query);
+        $statement->execute();
+        $row = $statement->fetch(\PDO::FETCH_ASSOC);
+
+        return $row['COUNT(id)'] ?: [];
+    }
+
     public function insert($data) {
         $columns = implode(", ", array_keys($data));
         $values = ":" . implode(", :", array_keys($data));
@@ -131,6 +149,20 @@ class QueryBuilder {
         }
 
         $query = "UPDATE $this->table SET " . implode(", ", $setClause);
+        if (!empty($this->conditions)) {
+            $query .= " WHERE " . implode(" AND ", $this->conditions);
+        }
+
+        $statement = $this->connection->prepare($query);
+        $statement->execute();
+
+        return $statement->rowCount() > 0;
+    }
+
+    public function increment($column, $inc = 1) {
+
+        $query = "UPDATE $this->table SET $column = $column + $inc";
+        
         if (!empty($this->conditions)) {
             $query .= " WHERE " . implode(" AND ", $this->conditions);
         }
