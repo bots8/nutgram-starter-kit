@@ -3,9 +3,9 @@
     "type": "project",
     "description": "A starter kit for building telegram bot with Nutgram",
     "require": {
-        "nutgram/nutgram": "^4.14",
         "vlucas/phpdotenv": "^5.6",
-        "symfony/cache": "^7.0"
+        "nutgram/nutgram": "3.20.2",
+        "symfony/cache": "6.4.2"
     },
     "autoload": {
         "psr-4": {

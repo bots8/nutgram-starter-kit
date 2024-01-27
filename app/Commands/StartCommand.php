@@ -4,7 +4,7 @@ namespace App\Commands;
 
 use SergiX44\Nutgram\Handlers\Type\Command;
 use SergiX44\Nutgram\Nutgram;
-use SergiX44\Nutgram\Telegram\Properties\ParseMode;
+use SergiX44\Nutgram\Telegram\Attributes\ParseMode;
 use App\QueryBuilder;
 
 class StartCommand extends Command
@@ -21,10 +21,9 @@ class StartCommand extends Command
             $this->registerUser($bot->message()->from);
         }
 
-        $bot->sendMessage(
-            text: "Welcome *$username*",
-            parse_mode: ParseMode::MARKDOWN,
-        );
+        $bot->sendMessage("Welcome *$username*", [
+            'parse_mode' => ParseMode::MARKDOWN
+        ]);
     }
 
     public function registerUser($from) 

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "be69873cba6b33a2dfdaded07bfb066b",
+    "content-hash": "3bcfe6fb42340dd96fc1d3fb84169dc9",
     "packages": [
         {
             "name": "graham-campbell/result-type",
@@ -395,7 +395,7 @@
         },
         {
             "name": "illuminate/macroable",
-            "version": "v10.41.0",
+            "version": "v10.42.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/macroable.git",
@@ -500,25 +500,107 @@
             "time": "2023-11-08T14:08:06+00:00"
         },
         {
-            "name": "nutgram/hydrator",
-            "version": "6.0.0",
+            "name": "league/container",
+            "version": "4.2.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/nutgram/hydrator.git",
-                "reference": "cdd8cb922952edc8d295a754f6d70227cfbd369e"
+                "url": "https://github.com/thephpleague/container.git",
+                "reference": "375d13cb828649599ef5d48a339c4af7a26cd0ab"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nutgram/hydrator/zipball/cdd8cb922952edc8d295a754f6d70227cfbd369e",
-                "reference": "cdd8cb922952edc8d295a754f6d70227cfbd369e",
+                "url": "https://api.github.com/repos/thephpleague/container/zipball/375d13cb828649599ef5d48a339c4af7a26cd0ab",
+                "reference": "375d13cb828649599ef5d48a339c4af7a26cd0ab",
                 "shasum": ""
             },
             "require": {
-                "php": "^8.1",
+                "php": "^7.2 || ^8.0",
+                "psr/container": "^1.1 || ^2.0"
+            },
+            "provide": {
+                "psr/container-implementation": "^1.0"
+            },
+            "replace": {
+                "orno/di": "~2.0"
+            },
+            "require-dev": {
+                "nette/php-generator": "^3.4",
+                "nikic/php-parser": "^4.10",
+                "phpstan/phpstan": "^0.12.47",
+                "phpunit/phpunit": "^8.5.17",
+                "roave/security-advisories": "dev-latest",
+                "scrutinizer/ocular": "^1.8",
+                "squizlabs/php_codesniffer": "^3.6"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.x-dev",
+                    "dev-4.x": "4.x-dev",
+                    "dev-3.x": "3.x-dev",
+                    "dev-2.x": "2.x-dev",
+                    "dev-1.x": "1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "League\\Container\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Phil Bennett",
+                    "email": "mail@philbennett.co.uk",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A fast and intuitive dependency injection container.",
+            "homepage": "https://github.com/thephpleague/container",
+            "keywords": [
+                "container",
+                "dependency",
+                "di",
+                "injection",
+                "league",
+                "provider",
+                "service"
+            ],
+            "support": {
+                "issues": "https://github.com/thephpleague/container/issues",
+                "source": "https://github.com/thephpleague/container/tree/4.2.0"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/philipobenito",
+                    "type": "github"
+                }
+            ],
+            "time": "2021-11-16T10:29:06+00:00"
+        },
+        {
+            "name": "nutgram/hydrator",
+            "version": "4.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nutgram/hydrator.git",
+                "reference": "ab1734f050edf2455922938c1114ae88affe1a40"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nutgram/hydrator/zipball/ab1734f050edf2455922938c1114ae88affe1a40",
+                "reference": "ab1734f050edf2455922938c1114ae88affe1a40",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.0",
                 "psr/container": "^1.1 || ^2.0"
             },
             "require-dev": {
-                "illuminate/container": "^10.0",
+                "league/container": "^4.2",
                 "phpunit/phpunit": "~9.5.0"
             },
             "type": "library",
@@ -555,22 +637,22 @@
             ],
             "support": {
                 "issues": "https://github.com/nutgram/hydrator/issues",
-                "source": "https://github.com/nutgram/hydrator/tree/6.0.0"
+                "source": "https://github.com/nutgram/hydrator/tree/4.0.1"
             },
-            "time": "2024-01-07T22:43:31+00:00"
+            "time": "2023-05-07T13:13:50+00:00"
         },
         {
             "name": "nutgram/nutgram",
-            "version": "4.15.0",
+            "version": "3.20.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nutgram/nutgram.git",
-                "reference": "d27152ee69743b4f528e7839acd4131196a6e8ba"
+                "reference": "6a38eaed082774ea98b46fd2ae01f3bfba5b496e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nutgram/nutgram/zipball/d27152ee69743b4f528e7839acd4131196a6e8ba",
-                "reference": "d27152ee69743b4f528e7839acd4131196a6e8ba",
+                "url": "https://api.github.com/repos/nutgram/nutgram/zipball/6a38eaed082774ea98b46fd2ae01f3bfba5b496e",
+                "reference": "6a38eaed082774ea98b46fd2ae01f3bfba5b496e",
                 "shasum": ""
             },
             "require": {
@@ -578,24 +660,31 @@
                 "guzzlehttp/guzzle": "^7.2",
                 "illuminate/macroable": "^8.0|^9.0|^10.0",
                 "laravel/serializable-closure": "^1.2",
-                "nutgram/hydrator": "^6.0",
-                "php": "^8.2",
+                "league/container": "^4.2",
+                "nutgram/hydrator": "^4.0.1",
+                "php": ">=8.0",
                 "psr/log": "^1.0|^2.0|^3.0",
-                "psr/simple-cache": "^1.0|^2.0|^3.0",
-                "sergix44/container": "^2.1"
+                "psr/simple-cache": "^1.0|^2.0|^3.0"
             },
             "require-dev": {
                 "ext-reflection": "*",
-                "pestphp/pest": "^2.5",
-                "pestphp/pest-plugin-mock": "^2.0",
+                "illuminate/testing": "^8.0|^9.0|^10.0",
+                "netresearch/jsonmapper": "^4.0.0",
+                "orchestra/testbench": "^6.0|^7.0|^8.0",
+                "pestphp/pest": "^1.1",
+                "pestphp/pest-plugin-mock": "^1.0",
                 "roave/security-advisories": "dev-latest",
-                "vimeo/psalm": "^5.7.7"
+                "vimeo/psalm": "^4.30"
             },
             "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "SergiX44\\Nutgram\\NutgramServiceProvider"
+                    ]
+                }
+            },
             "autoload": {
-                "files": [
-                    "src/Support/Helpers.php"
-                ],
                 "psr-4": {
                     "SergiX44\\Nutgram\\": "src/"
                 }
@@ -629,7 +718,7 @@
             ],
             "support": {
                 "issues": "https://github.com/nutgram/nutgram/issues",
-                "source": "https://github.com/nutgram/nutgram/tree/4.15.0"
+                "source": "https://github.com/nutgram/nutgram/tree/3.20.2"
             },
             "funding": [
                 {
@@ -641,7 +730,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-01-13T17:01:00+00:00"
+            "time": "2023-06-23T20:25:10+00:00"
         },
         {
             "name": "phpoption/phpoption",
@@ -1126,88 +1215,32 @@
             "time": "2019-03-08T08:55:37+00:00"
         },
         {
-            "name": "sergix44/container",
-            "version": "2.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/SergiX44/container.git",
-                "reference": "54513797b8dba8d9b5d4db62b9d3c862d56f696c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/SergiX44/container/zipball/54513797b8dba8d9b5d4db62b9d3c862d56f696c",
-                "reference": "54513797b8dba8d9b5d4db62b9d3c862d56f696c",
-                "shasum": ""
-            },
-            "require": {
-                "ext-reflection": "*",
-                "php": "^8.1",
-                "psr/container": "^1.1|^2.0"
-            },
-            "provide": {
-                "psr/container-implementation": "^1.1|^2.0"
-            },
-            "require-dev": {
-                "pestphp/pest": "^2.0",
-                "php-di/php-di": "^7.0",
-                "vimeo/psalm": "^5.13"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "SergiX44\\Container\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Sergio Brighenti",
-                    "email": "sergio@brighenti.me"
-                }
-            ],
-            "description": "A simple and fast service container",
-            "support": {
-                "issues": "https://github.com/SergiX44/container/issues",
-                "source": "https://github.com/SergiX44/container/tree/2.1.0"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/SergiX44",
-                    "type": "github"
-                }
-            ],
-            "time": "2023-07-04T16:59:59+00:00"
-        },
-        {
             "name": "symfony/cache",
-            "version": "v7.0.2",
+            "version": "v6.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/cache.git",
-                "reference": "378e30a864c868d635353f103a5a5e7569f029ec"
+                "reference": "14a75869bbb41cb35bc5d9d322473928c6f3f978"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/cache/zipball/378e30a864c868d635353f103a5a5e7569f029ec",
-                "reference": "378e30a864c868d635353f103a5a5e7569f029ec",
+                "url": "https://api.github.com/repos/symfony/cache/zipball/14a75869bbb41cb35bc5d9d322473928c6f3f978",
+                "reference": "14a75869bbb41cb35bc5d9d322473928c6f3f978",
                 "shasum": ""
             },
             "require": {
-                "php": ">=8.2",
+                "php": ">=8.1",
                 "psr/cache": "^2.0|^3.0",
                 "psr/log": "^1.1|^2|^3",
                 "symfony/cache-contracts": "^2.5|^3",
                 "symfony/service-contracts": "^2.5|^3",
-                "symfony/var-exporter": "^6.4|^7.0"
+                "symfony/var-exporter": "^6.3.6|^7.0"
             },
             "conflict": {
-                "doctrine/dbal": "<3.6",
-                "symfony/dependency-injection": "<6.4",
-                "symfony/http-kernel": "<6.4",
-                "symfony/var-dumper": "<6.4"
+                "doctrine/dbal": "<2.13.1",
+                "symfony/dependency-injection": "<5.4",
+                "symfony/http-kernel": "<5.4",
+                "symfony/var-dumper": "<5.4"
             },
             "provide": {
                 "psr/cache-implementation": "2.0|3.0",
@@ -1216,15 +1249,15 @@
             },
             "require-dev": {
                 "cache/integration-tests": "dev-master",
-                "doctrine/dbal": "^3.6|^4",
+                "doctrine/dbal": "^2.13.1|^3|^4",
                 "predis/predis": "^1.1|^2.0",
                 "psr/simple-cache": "^1.0|^2.0|^3.0",
-                "symfony/config": "^6.4|^7.0",
-                "symfony/dependency-injection": "^6.4|^7.0",
-                "symfony/filesystem": "^6.4|^7.0",
-                "symfony/http-kernel": "^6.4|^7.0",
-                "symfony/messenger": "^6.4|^7.0",
-                "symfony/var-dumper": "^6.4|^7.0"
+                "symfony/config": "^5.4|^6.0|^7.0",
+                "symfony/dependency-injection": "^5.4|^6.0|^7.0",
+                "symfony/filesystem": "^5.4|^6.0|^7.0",
+                "symfony/http-kernel": "^5.4|^6.0|^7.0",
+                "symfony/messenger": "^5.4|^6.0|^7.0",
+                "symfony/var-dumper": "^5.4|^6.0|^7.0"
             },
             "type": "library",
             "autoload": {
@@ -1259,7 +1292,7 @@
                 "psr6"
             ],
             "support": {
-                "source": "https://github.com/symfony/cache/tree/v7.0.2"
+                "source": "https://github.com/symfony/cache/tree/v6.4.2"
             },
             "funding": [
                 {
@@ -1275,7 +1308,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-12-29T15:37:40+00:00"
+            "time": "2023-12-29T15:34:34+00:00"
         },
         {
             "name": "symfony/cache-contracts",

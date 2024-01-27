@@ -2,7 +2,7 @@
 
 Start your Telegram bot development journey with this simple starter kit, designed for beginners. It offers essential tools and guidelines to easily build your first Telegram bot, making it a great choice for those looking to create a ready-to-use bot for production.
 
-Read nutgram documentation since this starter kit using that Library as core component 
+Read nutgram documentation since this starter kit using that Library as core component (version 3.x)
 
 https://nutgram.dev/
 

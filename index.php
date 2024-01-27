@@ -17,9 +17,9 @@ use SergiX44\Nutgram\Configuration;
 $psr6Cache = new FilesystemAdapter();
 $psr16Cache = new Psr16Cache($psr6Cache);
 
-$bot = new Nutgram($_ENV['BOT_TOKEN'], new Configuration(
-    cache: $psr16Cache
-));
+$bot = new Nutgram($_ENV['BOT_TOKEN'], [
+    'cache' => $psr16Cache
+]);
 
 // Running mode
 if($_ENV['ENV'] == 'development') {
