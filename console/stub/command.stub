@@ -1,0 +1,18 @@
+<?php
+
+namespace App\Commands;
+
+use SergiX44\Nutgram\Handlers\Type\Command;
+use SergiX44\Nutgram\Nutgram;
+
+class ClassName extends Command
+{
+    protected string $command = 'start';
+
+    protected ?string $description = 'A lovely start command';
+
+    public function handle(Nutgram $bot): void
+    {
+        $bot->sendMessage('Hello there!');
+    }
+}

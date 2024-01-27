@@ -1,0 +1,16 @@
+<?php
+
+namespace App\Middleware;
+
+use SergiX44\Nutgram\Nutgram;
+
+/**
+ * This is example code to create Middleware
+ */
+class ClassName {
+
+	function __invoke(Nutgram $bot, $next)
+	{
+		$next($bot);
+	}
+}
