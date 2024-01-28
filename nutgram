@@ -2,13 +2,10 @@
 <?php
 require __DIR__ . '/vendor/autoload.php';
 
-use Console\GenerateCommand;
-use Console\GenerateConversation;
-use Console\GenerateMiddleware;
-use Symfony\Component\Console\Application;
- 
-$app = new Application();
-$app->add(new GenerateCommand());
-$app->add(new GenerateConversation());
-$app->add(new GenerateMiddleware());
+use App\Kernel;
+
+$kernel = new Kernel();
+
+$app = $kernel->loadCommands(__DIR__.'/console');
+
 $app->run();

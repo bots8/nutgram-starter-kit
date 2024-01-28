@@ -2,10 +2,6 @@
 
 use SergiX44\Nutgram\Nutgram;
 
-test('example', function () {
-    expect(true)->toBeTrue();
-});
-
 it('can get updates', function () {
     $bot = new Nutgram('6602958787:AAHsKBA4GsD9zr1vyojG8xbviLf6giV7Jjc', [
         'timeout' => 5
