@@ -7,7 +7,6 @@ $dotenv->load();
 
 use SergiX44\Nutgram\Nutgram;
 use SergiX44\Nutgram\RunningMode\Webhook;
-use SergiX44\Nutgram\RunningMode\Polling;
 use Symfony\Contracts\Cache\ItemInterface;
 use Symfony\Component\Cache\Adapter\FilesystemAdapter;
 use Symfony\Component\Cache\Psr16Cache;
@@ -24,10 +23,6 @@ $bot = new Nutgram($_ENV['BOT_TOKEN'], [
 require __DIR__.'/handler.php';
 
 // Running mode
-if($_ENV['ENV'] == 'development') {
-	$bot->setRunningMode(Polling::class);
-} else {
-	$bot->setRunningMode(Webhook::class);
-}
+$bot->setRunningMode(Webhook::class);
 
 return $bot;

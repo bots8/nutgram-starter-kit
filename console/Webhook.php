@@ -35,7 +35,7 @@ class Webhook extends Command
     {
         $telegramApiUrl = 'https://api.telegram.org/bot' . $_ENV['BOT_TOKEN'] . '/setWebhook';
         
-        if ($cmd = 'delete') {
+        if ($cmd == 'delete') {
             // If $set is false, change the URL to delete the webhook
             $telegramApiUrl = 'https://api.telegram.org/bot' . $_ENV['BOT_TOKEN'] . '/deleteWebhook';
         }
