@@ -6,13 +6,21 @@ Read nutgram documentation since this starter kit using that Library as core com
 
 https://nutgram.dev/
 
+## Main Features
+
+- Well-structured folder
+- Ease database integration
+- CLI for development
+- Testing kit (Pest)
+- Ready for production
+
 ## Requirements
 
 Before you begin, ensure that you have the following requirements installed:
 
-- PHP 8.2 or higher
+- PHP 8.1 or higher
 - cURL extension for PHP
-- MySQL Database (optional)
+- Database (optional)
 
 ## Installation
 
@@ -30,7 +38,7 @@ Before you begin, ensure that you have the following requirements installed:
     cp .env.example .env
     ```
 
-2. Open the `.env` file in a text editor and update the `TELEGRAM_BOT_TOKEN` with your actual bot token.
+2. Open the `.env` file in a text editor and update the `BOT_TOKEN` with your actual bot token.
 
 ## Structure
 
@@ -41,15 +49,16 @@ Before you begin, ensure that you have the following requirements installed:
 - **.env.example**: This file serves as an example configuration file. It includes placeholders for environment variables that your application might need. Make a copy of this file as `.env` and fill in the actual values.
 - **handler.php**: This file is an example webhook handler. You can customize this file to handle incoming updates from Telegram.
 - **index.php**: The main entry point of your bot. You may include your application logic or use it to bootstrap your bot.
-- **setWebhook.php**: A script to set up the Telegram webhook. Replace placeholders with your actual values before running this script.
+- **tests/**: This directory contains test scripts and suites to verify the functionality and behavior of your bot application.
+- **console/**: This directory houses command-line scripts and utilities for managing and interacting with your bot application.
 
 
 ## Usage
 
-1. For production release, run the `webhook.php` script to set up your webhook:
+1. For production release, run the `webhook` command to set up your webhook:
 
     ```bash
-    php webhook.php set
+    php nutgram webhook set
     ```
 
 2. Start your bot application:
@@ -61,7 +70,7 @@ Before you begin, ensure that you have the following requirements installed:
 3. Or if you want to remove webhhok:
 
     ```bash
-    php webhook.php delete
+    php nutgram webhook delete
     ```
 
 ## Working with Database
@@ -86,10 +95,6 @@ $res = $qb->table('users')
     ->where('id', '>', 10)
     ->findAll();
 
-// Select by PK
-$res = $qb->table('users')
-    ->findByPk(1);
-
 // Insert data
 $qb->table('users')->insert([
     'telegramId' => $from->id,
@@ -97,17 +102,7 @@ $qb->table('users')->insert([
     'name' => $from->first_name.' '.$from->last_name,
 ]);
 
-// Update data
-$qb->table('users')
-    ->where('username', 'user')
-    ->update([
-        'name' => $from->first_name,
-    ]);
-
-// Delete data
-$qb->table('users')
-    ->where('status', '=', 'Banned')
-    ->delete();
+...
 
 ```
 
