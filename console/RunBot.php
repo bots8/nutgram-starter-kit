@@ -1,6 +1,8 @@
 <?php
+
 namespace Console;
  
+use App\Middleware\Log;
 use SergiX44\Nutgram\RunningMode\Polling;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
@@ -18,11 +20,11 @@ class RunBot extends Command
     {
     	$app = require_once __DIR__.'/../bootstrap.php';
 		
-		$bot->setRunningMode(Polling::class);
+		$app->setRunningMode(Polling::class);
+
+        $app->middleware(Log::class);
 
 		$app->registerMyCommands();
 		$app->run();
-
-        return Command::SUCCESS;
     }
 }
