@@ -12,6 +12,7 @@ use Symfony\Component\Cache\Adapter\FilesystemAdapter;
 use Symfony\Component\Cache\Psr16Cache;
 use SergiX44\Nutgram\Configuration;
 
+date_default_timezone_set($_ENV['TIMEZONE']);
 
 $psr6Cache = new FilesystemAdapter();
 $psr16Cache = new Psr16Cache($psr6Cache);
