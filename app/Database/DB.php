@@ -1,58 +1,15 @@
 <?php
 
-namespace App;
+namespace App\Database;
 
-class QueryBuilder {
+use App\Database\BaseQuery;
+use PDO;
 
-    private $table;
-    private $columns = [];
-    private $conditions = [];
-    private $ordering = [];
-    private $limit;
-    private $connection;
-
-    public function __construct()
-    {
-        try {
-            $this->connection = new \PDO(
-                "mysql:host={$_ENV['DB_HOST']};dbname={$_ENV['DB_NAME']}",
-                $_ENV['DB_USERNAME'],
-                $_ENV['DB_PASSWORD']
-            );
-            $this->connection->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
-        } catch (\PDOException $e) {
-            die("Connection failed: " . $e->getMessage());
-        }
-    }
-
-    public function table($table) {
-        $this->table = $table;
-        return $this;
-    }
-
-    public function select($columns) {
-        $this->columns = is_array($columns) ? $columns : func_get_args();
-        return $this;
-    }
-
-    public function where($column, $operator, $value) {
-        $this->conditions[] = "$column $operator '$value'";
-        $this->bindParams[":$column"] = $value;
-        return $this;
-    }
-
-    public function limit($number)
-    {
-        $this->limit = $number;
-        return $this;
-    }
-
-    public function orderBy($column, $type = "ASC")
-    {
-        $this->ordering = [$column, $type];
-        return $this;
-    }
-
+/**
+ * Database manager
+ */
+class DB extends BaseQuery
+{
     public function findAll() {
         if (empty($this->columns)) {
             $this->columns = ['*'];
@@ -74,21 +31,21 @@ class QueryBuilder {
         
         $statement = $this->connection->prepare($query);
         $statement->execute();
-        $rows = $statement->fetchAll(\PDO::FETCH_ASSOC);
+        $rows = $statement->fetchAll(PDO::FETCH_ASSOC);
 
         return $rows;
     }
 
-    public function findByPk($primaryKey) {
+    public function findByPk($primaryKey, $pkName = 'id') {
         if (empty($this->columns)) {
             $this->columns = ['*'];
         }
 
-        $query = "SELECT " . implode(", ", $this->columns) . " FROM $this->table WHERE id = $primaryKey";
+        $query = "SELECT " . implode(", ", $this->columns) . " FROM $this->table WHERE $pkName = $primaryKey";
 
         $statement = $this->connection->prepare($query);
         $statement->execute();
-        $row = $statement->fetch(\PDO::FETCH_ASSOC);
+        $row = $statement->fetch(PDO::FETCH_ASSOC);
 
         return $row ?: [];
     }
@@ -106,7 +63,7 @@ class QueryBuilder {
 
         $statement = $this->connection->prepare($query);
         $statement->execute();
-        $row = $statement->fetch(\PDO::FETCH_ASSOC);
+        $row = $statement->fetch(PDO::FETCH_ASSOC);
 
         return $row ?: [];
     }
@@ -124,7 +81,7 @@ class QueryBuilder {
 
         $statement = $this->connection->prepare($query);
         $statement->execute();
-        $row = $statement->fetch(\PDO::FETCH_ASSOC);
+        $row = $statement->fetch(PDO::FETCH_ASSOC);
 
         return $row['COUNT(id)'] ?: [];
     }
