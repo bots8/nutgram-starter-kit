@@ -12,6 +12,10 @@ class BaseConnection
 {
     protected $connection;
 
+    /**
+     * Creates a new connection to the database using PDO.
+     * Sets PDO error mode to ERRMODE_EXCEPTION.
+     */
     public function __construct()
     {
         try {
@@ -26,6 +30,11 @@ class BaseConnection
         }
     }
 
+    /**
+     * Get the connection to the database.
+     * 
+     * @return PDO PDO connection to the database.
+     */
     public function getConnection() {
         return $this->connection;
     }
