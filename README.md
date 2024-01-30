@@ -66,10 +66,10 @@ Before you begin, ensure that you have the following requirements installed:
     php nutgram webhook set
     ```
 
-2. Start your bot application:
+2. Start your bot application (development):
 
     ```bash
-    php index.php
+    php nutgram run
     ```
     
 3. Or if you want to remove webhhok:
