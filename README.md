@@ -43,14 +43,19 @@ Before you begin, ensure that you have the following requirements installed:
 ## Structure
 
 - **app/**
+  - **Commands/**: This directory contains command classes for your bot application.
+  - **Conversations/**: This directory contains conversation classes for your bot application.
+  - **Database/**: This directory contains database-related classes for your bot application.
   - **Middleware/**: This directory contains middleware classes for your bot application.
-  - **QueryBuilder.php**: a simple query builder to interact with MySQL Database.
+  - **Kernel.php**: This file is the application's console kernel, which handles command execution and provides a central location for registering all of the application's console commands and more.
 - **library/**: This directory can be used to store any additional libraries or utilities your bot might need. You can organize this folder based on your project's specific requirements.
 - **.env.example**: This file serves as an example configuration file. It includes placeholders for environment variables that your application might need. Make a copy of this file as `.env` and fill in the actual values.
+- **bootstrap.php**: This file is added to initialize the application. It may contain any necessary setup or bootstrapping logic.
 - **handler.php**: This file is an example webhook handler. You can customize this file to handle incoming updates from Telegram.
 - **index.php**: The main entry point of your bot. You may include your application logic or use it to bootstrap your bot.
 - **tests/**: This directory contains test scripts and suites to verify the functionality and behavior of your bot application.
 - **console/**: This directory houses command-line scripts and utilities for managing and interacting with your bot application.
+
 
 
 ## Usage
@@ -75,12 +80,12 @@ Before you begin, ensure that you have the following requirements installed:
 
 ## Working with Database
 
-You can easily interact with database but for now you can only working with MySQL Database, here a few example code to use query builder
+You can easily interact with database but for now you can only working with supported PDO Database, here a few example code to use query builder
 
 ```php
-use App\QueryBuilder;
+use App\Database\DB;
 
-$qb = new QueryBuilder();
+$qb = new DB();
 
 
 // Select first data
@@ -105,6 +110,8 @@ $qb->table('users')->insert([
 ...
 
 ```
+
+More method like: `update($arr)`, `count()`, `delete()`, `increment($col)`
 
 ## License
 
